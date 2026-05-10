@@ -761,49 +761,49 @@ const certifications = [
     title: "Cybersecurity Trainee - Palo Alto Networks",
     issuer: "Coursera",
     year: "2025",
-    file: "public/certificates/palo_alto.pdf",
+    file: "/certificates/palo_alto.pdf",
   },
   {
     title: "Deloitte Cyber Job Simulation",
     issuer: "Forage",
     year: "2025",
-    file: "public/certificates/cyber_job_d.pdf",
+    file: "/certificates/cyber_job_d.pdf",
   },
   {
     title: "Cyber Security Fundamentals",
     issuer: "Infosys Springboard",
     year: "2025",
-    file: "public/certificates/infosys_cyber.pdf",
+    file: "/certificates/infosys_cyber.pdf",
   },
   {
     title: "JPMorgan Chase Software Engineering job simulation",
     issuer: "Coursera",
     year: "2025",
-    file: "public/certificates/jpmorgan.pdf",
+    file: "/certificates/jpmorgan.pdf",
   },
   {
     title: "Foundations of cybersecurity-Google",
     issuer: "Coursera",
     year: "2025",
-    file: "public/certificates/google.pdf",
+    file: "/certificates/google.pdf",
   },
   {
     title: "TATA: Cybersecurity Analyst Job Simulation",
     issuer: "Forage",
     year: "2025",
-    file: "public/certificates/tata.pdf",
+    file: "/certificates/tata.pdf",
   },
   {
     title: "Meta Full Stack Developer Professional Certificate",
     issuer: "Coursera",
     year: "2025",
-    file: "public/certificates/meta.pdf",
+    file: "/certificates/meta.pdf",
   },
   {
     title: "Self- Driving Cars Specialization",
     issuer: "Coursera",
     year: "2025",
-    file: "public/certificates/SDC.pdf",
+    file: "/certificates/SDC.pdf",
   },
 ];
 
@@ -872,7 +872,7 @@ export default function Portfolio() {
       <section className="hero" id="hero">
         <div className="hero-grid" />
         <div className="hero-image">
-          <img src="/public/portfolio.png.jpeg" alt="Sagarika" />
+          <img src="/portfolio.png.jpeg" alt="Sagarika" />
         </div>
 
         <h1 className="hero-name">
