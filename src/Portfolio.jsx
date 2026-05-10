@@ -1132,7 +1132,7 @@ export default function Portfolio() {
 
             {/* GITHUB */}
             <a
-              href="https://github.com/sagarikanaik"
+              href="https://github.com/sagarika-bit"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-btn"
