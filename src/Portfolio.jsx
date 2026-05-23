@@ -980,12 +980,12 @@ export default function Portfolio() {
           <span className="callme-icon">📞</span>
           <div className="callme-title">Let's Talk</div>
           <div className="callme-subtitle">REACH OUT DIRECTLY</div>
-          <a href="tel:+919XXXXXXXXX" className="callme-row">
+          <a href="tel:+917008286360" className="callme-row">
             <div className="callme-row-left">
               <span className="callme-row-icon">📱</span>
               <div>
                 <div className="callme-row-label">Phone</div>
-                <div className="callme-row-val">+91 7008286360</div>
+                <div className="callme-row-val">+91 9XXXXXXXXX</div>
               </div>
             </div>
             <span className="callme-arrow">→</span>
