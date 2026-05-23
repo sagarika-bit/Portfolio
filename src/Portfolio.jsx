@@ -689,7 +689,7 @@ const projects = [
       "This very portfolio — a futuristic, dark-theme personal website built entirely with React.js and custom CSS. Features include a cinematic loader sequence, a custom cybersecurity-scope cursor, parallax hero animations, timeline journey section, interactive project cards, and a collage photo gallery. Every section was crafted with attention to micro-interactions and aesthetic cohesion.",
     tech: ["React.js", "CSS", "JavaScript"],
     github: "#",
-    demo: "#",
+    demo: "https://portfolio-zeta-blond-60.vercel.app/",
   },
 ];
 
@@ -985,7 +985,7 @@ export default function Portfolio() {
               <span className="callme-row-icon">📱</span>
               <div>
                 <div className="callme-row-label">Phone</div>
-                <div className="callme-row-val">+91 9XX-XXX-XXXX</div>
+                <div className="callme-row-val">+91 7008286360</div>
               </div>
             </div>
             <span className="callme-arrow">→</span>
