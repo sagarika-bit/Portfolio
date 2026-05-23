@@ -136,7 +136,7 @@ const styles = `
   .aside-label { color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
   .aside-val { color: var(--text); }
 
-  /* SKILLS — language highlighting */
+  /* ── SKILLS — full color system for all cards ── */
   .skills { background: var(--bg); }
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 1px; border: 1px solid var(--border); }
   .skill-card { background: var(--bg); padding: 32px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: background 0.3s; cursor: default; }
@@ -147,12 +147,37 @@ const styles = `
   .skill-tag { font-family: var(--font-mono); font-size: 11px; color: var(--muted); background: var(--muted2); padding: 4px 10px; letter-spacing: 0.05em; transition: all 0.2s; }
   .skill-card:hover .skill-tag { background: #1e1e1e; }
   .skill-tag:hover { filter: brightness(1.3); transform: translateY(-2px); }
-  /* Language-specific colours */
+
+  /* Languages */
   .lang-java   { color: #f89820 !important; background: rgba(248,152,32,0.12) !important; border: 1px solid rgba(248,152,32,0.35) !important; }
   .lang-c      { color: #4fc3f7 !important; background: rgba(79,195,247,0.12) !important; border: 1px solid rgba(79,195,247,0.35) !important; }
   .lang-python { color: #ffd43b !important; background: rgba(255,212,59,0.12) !important; border: 1px solid rgba(255,212,59,0.35) !important; }
   .lang-js     { color: #f0db4f !important; background: rgba(240,219,79,0.12) !important; border: 1px solid rgba(240,219,79,0.35) !important; }
   .lang-sql    { color: #e46f1a !important; background: rgba(228,111,26,0.12) !important; border: 1px solid rgba(228,111,26,0.35) !important; }
+
+  /* Web Development */
+  .tag-react   { color: #61dafb !important; background: rgba(97,218,251,0.12) !important; border: 1px solid rgba(97,218,251,0.35) !important; }
+  .tag-html    { color: #e34f26 !important; background: rgba(227,79,38,0.12) !important; border: 1px solid rgba(227,79,38,0.35) !important; }
+  .tag-css     { color: #264de4 !important; background: rgba(38,77,228,0.15) !important; border: 1px solid rgba(100,130,255,0.4) !important; }
+  .tag-node    { color: #68a063 !important; background: rgba(104,160,99,0.12) !important; border: 1px solid rgba(104,160,99,0.35) !important; }
+  .tag-dbms    { color: #e46f1a !important; background: rgba(228,111,26,0.12) !important; border: 1px solid rgba(228,111,26,0.35) !important; }
+
+  /* Cybersecurity */
+  .tag-netsec  { color: #f87171 !important; background: rgba(248,113,113,0.12) !important; border: 1px solid rgba(248,113,113,0.35) !important; }
+  .tag-iam     { color: #a78bfa !important; background: rgba(167,139,250,0.12) !important; border: 1px solid rgba(167,139,250,0.35) !important; }
+  .tag-threat  { color: #fb923c !important; background: rgba(251,146,60,0.12) !important; border: 1px solid rgba(251,146,60,0.35) !important; }
+  .tag-pentest { color: #4ade80 !important; background: rgba(74,222,128,0.12) !important; border: 1px solid rgba(74,222,128,0.35) !important; }
+  .tag-siem    { color: #38bdf8 !important; background: rgba(56,189,248,0.12) !important; border: 1px solid rgba(56,189,248,0.35) !important; }
+
+  /* Security Frameworks */
+  .tag-jwt     { color: #e8ff47 !important; background: rgba(232,255,71,0.10) !important; border: 1px solid rgba(232,255,71,0.35) !important; }
+  .tag-rbac    { color: #f472b6 !important; background: rgba(244,114,182,0.12) !important; border: 1px solid rgba(244,114,182,0.35) !important; }
+  .tag-secure  { color: #34d399 !important; background: rgba(52,211,153,0.12) !important; border: 1px solid rgba(52,211,153,0.35) !important; }
+
+  /* Tools */
+  .tag-git     { color: #f05032 !important; background: rgba(240,80,50,0.12) !important; border: 1px solid rgba(240,80,50,0.35) !important; }
+  .tag-nasa    { color: #60a5fa !important; background: rgba(96,165,250,0.12) !important; border: 1px solid rgba(96,165,250,0.35) !important; }
+  .tag-linux   { color: #fbbf24 !important; background: rgba(251,191,36,0.12) !important; border: 1px solid rgba(251,191,36,0.35) !important; }
 
   /* JOURNEY */
   .journey { background: var(--bg2); border-top: 1px solid var(--border); }
@@ -163,27 +188,21 @@ const styles = `
   .timeline-year-big { font-size: 48px; font-weight: 800; letter-spacing: -3px; line-height: 1; color: var(--muted2); transition: color 0.3s; }
   .timeline-entry:hover .timeline-year-big { color: var(--accent); }
   .timeline-year-end { font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.1em; margin-top: 2px; }
-  /* Logo slot */
   .timeline-logo-slot {
-  margin-top: 16px;
-  width: 95px;
-  height: 95px;
-  border-radius: 18px;
-  border: 1px dashed rgba(232,255,71,0.25);
-  background: rgba(232,255,71,0.04);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: border-color 0.3s, background 0.3s;
-}
+    margin-top: 16px;
+    width: 95px;
+    height: 95px;
+    border-radius: 18px;
+    border: 1px dashed rgba(232,255,71,0.25);
+    background: rgba(232,255,71,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.3s, background 0.3s;
+  }
   .timeline-entry:hover .timeline-logo-slot { border-color: rgba(232,255,71,0.5); background: rgba(232,255,71,0.09); }
-  .timeline-logo-slot img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-}
+  .timeline-logo-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
   .timeline-logo-placeholder { display: flex; flex-direction: column; align-items: center; gap: 4px; font-family: var(--font-mono); font-size: 9px; color: var(--muted); letter-spacing: 0.07em; text-align: center; padding: 8px; line-height: 1.3; text-transform: uppercase; }
   .timeline-logo-placeholder svg { opacity: 0.35; }
   .timeline-node { position: absolute; left: 220px; top: 52px; transform: translate(-50%,0); z-index: 3; }
@@ -204,21 +223,10 @@ const styles = `
 
   /* INTERNSHIP */
   .internship { background: var(--bg); border-top: 1px solid var(--border); }
-  .intern-grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-}
-  .intern-card { background: var(--surface); border: 1px solid var(--border); padding: 32px; border-radius: 20px; transition: 0.3s ease; position: relative; overflow: hidden; }
+  .intern-grid { display: flex; justify-content: center; align-items: center; margin-top: 30px; }
+  .intern-card { background: var(--surface); border: 1px solid var(--border); padding: 32px; border-radius: 20px; transition: 0.3s ease; position: relative; overflow: hidden; width: 1400px; min-height: 300px; }
   .intern-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
   .intern-card:hover::before { transform: scaleX(1); }
-
-  .intern-card {
-  width: 1400px;
-  min-height: 300px;
-}
-  
   .intern-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); border-color: rgba(232,255,71,0.2); }
   .intern-company { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; color: var(--accent); margin-bottom: 8px; }
   .intern-role { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
@@ -227,71 +235,20 @@ const styles = `
   .intern-skills { display: flex; flex-wrap: wrap; gap: 6px; }
   .intern-pill { font-family: var(--font-mono); font-size: 11px; color: var(--muted); background: var(--muted2); padding: 4px 10px; }
 
-  /* PROJECTS — 3 action buttons */
+  /* PROJECTS */
   .projects { background: var(--bg2); border-top: 1px solid var(--border); }
-  .projects-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 28px;
-  margin-top: 40px;
-}
-  .project-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 30px;
-  transition: 0.35s ease;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-  .project-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-}
-  .project-item:hover::before {
-  transform: scaleX(1);
-}
+  .projects-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; margin-top: 40px; }
+  .project-item { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 30px; transition: 0.35s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 18px; }
+  .project-item::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+  .project-item:hover::before { transform: scaleX(1); }
   .project-item:hover { padding-left: 16px; }
   .project-num { font-family: var(--font-mono); font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
-  .project-item:hover {
-  transform: translateY(-8px);
-  border-color: rgba(232,255,71,0.3);
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.5),
-    0 0 30px rgba(232,255,71,0.08);
-}
-  .project-name {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1.1;
-}
-
-.project-desc {
-  font-size: 14px;
-  line-height: 1.9;
-  color: #8d8d8d;
-  font-family: var(--font-display);
-}
+  .project-item:hover { transform: translateY(-8px); border-color: rgba(232,255,71,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.5),0 0 30px rgba(232,255,71,0.08); }
+  .project-name { font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.1; }
+  .project-desc { font-size: 14px; line-height: 1.9; color: #8d8d8d; font-family: var(--font-display); }
   .project-tech { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
   .tech-pill { font-family: var(--font-mono); font-size: 11px; color: var(--accent); border: 1px solid var(--accent); padding: 3px 10px; letter-spacing: 0.05em; opacity: 0.7; }
-  .project-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: auto;
-}
+  .project-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto; }
   .proj-btn { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; padding: 7px 14px; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; white-space: nowrap; cursor: pointer; border: none; background: none; }
   .proj-btn-github { color: #ccc; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12) !important; }
   .proj-btn-github:hover { background: rgba(255,255,255,0.12) !important; color: #fff; border-color: rgba(255,255,255,0.35) !important; transform: translateY(-2px); }
@@ -345,7 +302,7 @@ const styles = `
   .beyond-stat-num { font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
   .beyond-stat-lbl { font-family: var(--font-mono); font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
 
-  /* Collage — 8 photos, 3 rows */
+  /* Collage */
   .beyond-collage { position: relative; height: 700px; }
   .collage-photo { position: absolute; border-radius: 18px; border: 2px solid var(--border); overflow: hidden; transition: transform 0.4s ease,border-color 0.3s; box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
   .collage-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -411,7 +368,9 @@ const styles = `
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease,transform 0.7s ease; }
   .fade-in.visible { opacity: 1; transform: none; }
 
-  /* RESPONSIVE */
+  /* ══════════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════════ */
   @media (max-width: 1024px) {
     .hero-image { right: 30px; }
     .hero-image img { width: 260px; height: 260px; }
@@ -429,7 +388,13 @@ const styles = `
     nav.scrolled { padding: 12px 20px; }
     .nav-links, .nav-cta { display: none; }
 
-    .hero { min-height: 100vh; padding: 100px 20px 60px; justify-content: flex-start; flex-direction: column; }
+    /* ── HERO: keep name on one line ── */
+    .hero {
+      min-height: 100vh;
+      padding: 100px 20px 60px;
+      justify-content: flex-start;
+      flex-direction: column;
+    }
     .hero-image {
       position: relative;
       right: auto;
@@ -440,7 +405,14 @@ const styles = `
       justify-content: center;
     }
     .hero-image img { width: 180px; height: 180px; }
-    .hero-name { font-size: clamp(44px,13vw,72px); letter-spacing: -2px; }
+
+    /* FIX 1: SAGARIKA must not wrap — tighten spacing */
+    .hero-name {
+      font-size: clamp(36px, 11vw, 64px);
+      letter-spacing: -1px;
+      white-space: nowrap;
+    }
+
     .hero-tag { font-size: 10px; letter-spacing: 0.1em; }
     .hero-subtitle { font-size: 13px; max-width: 100%; }
     .hero-buttons { flex-wrap: wrap; gap: 12px; }
@@ -459,11 +431,38 @@ const styles = `
 
     .skills-grid { grid-template-columns: 1fr; }
 
+    /* ── FIX 2: TIMELINE MOBILE — show logo + year ── */
     .timeline-spine { left: 16px; }
-    .timeline-entry { grid-template-columns: 1fr; }
-    .timeline-left { display: none; }
-    .timeline-node { left: 16px; top: 24px; }
-    .timeline-right { padding: 20px 0 28px 40px; }
+    .timeline-entry {
+      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Show the left column on mobile — stacked on top */
+    .timeline-left {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+      padding: 24px 0 0 40px;
+      text-align: left;
+      align-items: flex-start;
+    }
+    .timeline-left-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .timeline-year-big { font-size: 32px; letter-spacing: -2px; }
+    .timeline-year-end { font-size: 10px; margin-top: 0; }
+    .timeline-logo-slot {
+      width: 68px;
+      height: 68px;
+      border-radius: 14px;
+      margin-top: 0;
+      flex-shrink: 0;
+    }
+    .timeline-node { left: 16px; top: 28px; }
+    .timeline-right { padding: 16px 0 28px 40px; }
     .timeline-title-new { font-size: 20px; }
     .timeline-org-new { font-size: 12px; }
     .timeline-desc-new { font-size: 14px; }
@@ -512,7 +511,12 @@ const styles = `
   }
 
   @media (max-width: 480px) {
-    .hero-name { font-size: clamp(38px,12vw,58px); }
+    /* FIX 1 (continued): Very small screens */
+    .hero-name {
+      font-size: clamp(30px, 9.5vw, 52px);
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
     .hero-image img { width: 150px; height: 150px; }
     .hero-tag { font-size: 9px; }
     .hero-buttons { flex-direction: column; align-items: flex-start; }
@@ -527,17 +531,37 @@ const styles = `
   }
 `;
 
-/* ── HELPERS ── */
-function langClass(tag) {
-  return (
-    {
-      Java: "lang-java",
-      "C/C++": "lang-c",
-      "Python (Basics)": "lang-python",
-      JavaScript: "lang-js",
-      SQL: "lang-sql",
-    }[tag] || ""
-  );
+/* ── TAG COLOR HELPER ── */
+function tagClass(tag) {
+  const map = {
+    // Languages
+    Java: "lang-java",
+    "C/C++": "lang-c",
+    "Python (Basics)": "lang-python",
+    JavaScript: "lang-js",
+    SQL: "lang-sql",
+    // Web Dev
+    "React.js": "tag-react",
+    HTML5: "tag-html",
+    CSS3: "tag-css",
+    "Node.js": "tag-node",
+    "DBMS(SQL)": "tag-dbms",
+    // Cybersecurity
+    "Network Security": "tag-netsec",
+    IAM: "tag-iam",
+    "Threat Analysis": "tag-threat",
+    "Penetration Testing": "tag-pentest",
+    SIEM: "tag-siem",
+    // Security Frameworks
+    JWT: "tag-jwt",
+    "Role-Based Access Control (RBAC)": "tag-rbac",
+    "Secure Coding": "tag-secure",
+    // Tools
+    "Git/Github": "tag-git",
+    "NASA FIRMS API": "tag-nasa",
+    Linux: "tag-linux",
+  };
+  return map[tag] || "";
 }
 
 /* ── DATA ── */
@@ -546,7 +570,6 @@ const skills = [
     icon: "⬠",
     name: "Languages",
     tags: ["Java", "C/C++", "Python (Basics)", "JavaScript", "SQL"],
-    isLanguages: true,
   },
   {
     icon: "⬡",
@@ -729,7 +752,6 @@ const statusLines = [
   { label: "Rendering interface", delay: 2.3, value: "100%" },
 ];
 
-// 8 collage photo slots — add your image paths in src
 const collagePhotos = [
   { src: "/nss1.jpeg", label: "NSS CAMP", cls: "cp1" },
   { src: "/nss4.png", label: "OUTREACH", cls: "cp2" },
@@ -854,6 +876,7 @@ export default function Portfolio() {
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
+
   useEffect(() => {
     const move = (e) => setCursor({ x: e.clientX, y: e.clientY });
     const over = (e) =>
@@ -869,6 +892,7 @@ export default function Portfolio() {
       window.removeEventListener("mouseover", over);
     };
   }, []);
+
   useEffect(() => {
     if (loading) return;
     observerRef.current = new IntersectionObserver(
@@ -883,6 +907,7 @@ export default function Portfolio() {
       .forEach((el) => observerRef.current.observe(el));
     return () => observerRef.current?.disconnect();
   }, [loading]);
+
   useEffect(() => {
     const fn = (e) => {
       if (e.key === "Escape") {
@@ -894,15 +919,15 @@ export default function Portfolio() {
     return () => window.removeEventListener("keydown", fn);
   }, []);
 
-  const scopeSize = hovering ? 56 : 40;
-  const accentCol = "#e8ff47";
-
   return (
     <>
       <style>{styles}</style>
 
       {/* CURSOR */}
-      <div className="cursor-glow" style={{ left: cursor.x, top: cursor.y }} />
+      <div
+        className={`cursor-glow${hovering ? " hovering" : ""}`}
+        style={{ left: cursor.x, top: cursor.y }}
+      />
       <div className="cursor-dot" style={{ left: cursor.x, top: cursor.y }} />
 
       {loading && (
@@ -911,7 +936,7 @@ export default function Portfolio() {
         </div>
       )}
 
-      {/* PROJECT DESCRIPTION MODAL */}
+      {/* PROJECT MODAL */}
       <div
         className={`proj-modal-overlay ${projModal ? "open" : ""}`}
         onClick={() => setProjModal(null)}
@@ -1132,7 +1157,7 @@ export default function Portfolio() {
             </div>
           </section>
 
-          {/* SKILLS */}
+          {/* SKILLS — all cards now use tagClass() */}
           <section className="skills" id="skills">
             <div className="section-header fade-in">
               <h2 className="section-title">Skills</h2>
@@ -1145,10 +1170,7 @@ export default function Portfolio() {
                   <div className="skill-name">{s.name}</div>
                   <div className="skill-tags">
                     {s.tags.map((t) => (
-                      <span
-                        className={`skill-tag ${s.isLanguages ? langClass(t) : ""}`}
-                        key={t}
-                      >
+                      <span className={`skill-tag ${tagClass(t)}`} key={t}>
                         {t}
                       </span>
                     ))}
@@ -1168,10 +1190,13 @@ export default function Portfolio() {
               <div className="timeline-spine" />
               {timeline.map((item, i) => (
                 <div className="timeline-entry" key={i}>
+                  {/* timeline-left is now visible on mobile — rendered as a row */}
                   <div className="timeline-left">
-                    <div className="timeline-year-big">{item.yearStart}</div>
-                    <div className="timeline-year-end">{item.yearEnd}</div>
-                    {/* LOGO SLOT — set item.logoSrc to your image path e.g. "/school-logo.png" */}
+                    {/* On mobile these two siblings sit side-by-side via flex-row */}
+                    <div className="timeline-left-text">
+                      <div className="timeline-year-big">{item.yearStart}</div>
+                      <div className="timeline-year-end">{item.yearEnd}</div>
+                    </div>
                     <div className="timeline-logo-slot" title={item.logoAlt}>
                       {item.logoSrc ? (
                         <img src={item.logoSrc} alt={item.logoAlt} />
@@ -1265,7 +1290,6 @@ export default function Portfolio() {
                       ))}
                     </div>
                   </div>
-                  {/* THREE BUTTONS */}
                   <div className="project-actions">
                     <a
                       href={p.github}
@@ -1465,7 +1489,6 @@ export default function Portfolio() {
                   </div>
                 </div>
               </div>
-              {/* 8-photo collage */}
               <div className="beyond-collage">
                 {collagePhotos.map((photo, i) => (
                   <div className={`collage-photo ${photo.cls}`} key={i}>
