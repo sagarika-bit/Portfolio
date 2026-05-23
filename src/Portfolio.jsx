@@ -53,10 +53,10 @@ const styles = `
   .loader-corner.bl { bottom: 32px; left: 32px; border-width: 0 0 2px 2px; }
   .loader-corner.br { bottom: 32px; right: 32px; border-width: 0 2px 2px 0; }
   .loader-center { display: flex; flex-direction: column; align-items: center; z-index: 2; }
-  .loader-name { font-size: clamp(64px,14vw,160px); font-weight: 800; letter-spacing: -6px; line-height: 0.9; position: relative; }
+  .loader-name { font-size: clamp(64px,14vw,160px); font-weight: 800; letter-spacing: -6px; line-height: 0.9; position: relative; white-space: nowrap; }
   .loader-name .char { display: inline-block; animation: charReveal 0.5s cubic-bezier(0.34,1.56,0.64,1) both; }
   @keyframes charReveal { from { transform: translateY(-80px) skewX(-15deg); opacity: 0; } to { transform: translateY(0) skewX(0deg); opacity: 1; } }
-  .loader-name-ghost { position: absolute; inset: 0; font-size: inherit; font-weight: 800; letter-spacing: -6px; line-height: 0.9; color: transparent; -webkit-text-stroke: 1px rgba(232,255,71,0.2); animation: ghostFloat 4s ease-in-out infinite; user-select: none; }
+  .loader-name-ghost { position: absolute; inset: 0; font-size: inherit; font-weight: 800; letter-spacing: -6px; line-height: 0.9; color: transparent; -webkit-text-stroke: 1px rgba(232,255,71,0.2); animation: ghostFloat 4s ease-in-out infinite; user-select: none; white-space: nowrap; }
   @keyframes ghostFloat { 0%,100% { transform: translate(0,0); } 25% { transform: translate(3px,-2px); } 50% { transform: translate(-2px,1px); } 75% { transform: translate(1px,3px); } }
   .loader-status-wrap { margin-top: 36px; width: min(480px,80vw); display: flex; flex-direction: column; gap: 10px; }
   .status-line { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); opacity: 0; animation: statusAppear 0.4s ease forwards; }
@@ -377,7 +377,6 @@ const styles = `
     .intern-card { width: 100%; }
     .beyond-hero-row { gap: 40px; }
     .beyond-collage { height: 560px; }
-    .cp3,.cp6 { display: none; }
   }
 
   @media (max-width: 768px) {
@@ -387,6 +386,14 @@ const styles = `
     nav { padding: 16px 20px; }
     nav.scrolled { padding: 12px 20px; }
     .nav-links, .nav-cta { display: none; }
+
+    /* ── FIX: LOADER name on mobile — never wrap ── */
+    .loader-name {
+      font-size: clamp(38px, 12vw, 80px);
+      letter-spacing: -2px;
+      white-space: nowrap;
+    }
+    .loader-name-ghost { letter-spacing: -2px; }
 
     /* ── HERO: keep name on one line ── */
     .hero {
@@ -438,7 +445,6 @@ const styles = `
       display: flex;
       flex-direction: column;
     }
-    /* Show the left column on mobile — stacked on top */
     .timeline-left {
       display: flex;
       flex-direction: row;
@@ -485,12 +491,34 @@ const styles = `
     .cert-title { font-size: 16px; }
 
     .beyond-hero-row { grid-template-columns: 1fr; gap: 40px; }
-    .beyond-collage { height: 420px; order: -1; }
-    .cp3,.cp6,.cp7,.cp8 { display: none; }
-    .cp1 { width: 140px; height: 172px; left: 4px; }
-    .cp2 { width: 132px; height: 162px; left: 148px; }
-    .cp4 { width: 146px; height: 180px; top: 188px; left: 8px; }
-    .cp5 { width: 130px; height: 160px; top: 200px; left: 156px; }
+
+    /* ── FIX 3: COLLAGE — all 8 photos on mobile using CSS grid ── */
+    .beyond-collage {
+      position: relative;
+      height: auto;
+      order: -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 8px;
+    }
+    /* Reset ALL absolute positioning for mobile collage */
+    .collage-photo {
+      position: relative !important;
+      width: 100% !important;
+      height: 150px !important;
+      top: auto !important;
+      left: auto !important;
+      transform: none !important;
+      border-radius: 14px;
+      display: block !important;
+    }
+    .collage-photo:hover {
+      transform: scale(1.03) !important;
+    }
+    /* All 8 photos visible — no display:none */
+    .cp1, .cp2, .cp3, .cp4, .cp5, .cp6, .cp7, .cp8 { display: block !important; }
+
     .beyond-card-enhanced { padding: 22px; border-radius: 18px; }
     .beyond-card-title { font-size: 18px; }
     .beyond-stat-strip { gap: 16px; flex-wrap: wrap; }
@@ -511,7 +539,13 @@ const styles = `
   }
 
   @media (max-width: 480px) {
-    /* FIX 1 (continued): Very small screens */
+    /* Loader name stays on one line even on tiny screens */
+    .loader-name {
+      font-size: clamp(30px, 10.5vw, 50px);
+      letter-spacing: -1px;
+    }
+    .loader-name-ghost { letter-spacing: -1px; }
+
     .hero-name {
       font-size: clamp(30px, 9.5vw, 52px);
       letter-spacing: -0.5px;
@@ -522,11 +556,8 @@ const styles = `
     .hero-buttons { flex-direction: column; align-items: flex-start; }
     .projects-list { grid-template-columns: 1fr; }
     .cert-grid { grid-template-columns: 1fr; }
-    .beyond-collage { height: 340px; }
-    .cp1 { width: 118px; height: 145px; left: 2px; }
-    .cp2 { width: 112px; height: 138px; left: 126px; }
-    .cp4 { width: 124px; height: 152px; top: 158px; left: 4px; }
-    .cp5 { width: 110px; height: 135px; top: 166px; left: 132px; }
+    /* Collage photos slightly shorter on very small screens */
+    .collage-photo { height: 120px !important; }
     .section-title { font-size: clamp(26px,9vw,38px); }
   }
 `;
@@ -689,7 +720,7 @@ const projects = [
       "This very portfolio — a futuristic, dark-theme personal website built entirely with React.js and custom CSS. Features include a cinematic loader sequence, a custom cybersecurity-scope cursor, parallax hero animations, timeline journey section, interactive project cards, and a collage photo gallery. Every section was crafted with attention to micro-interactions and aesthetic cohesion.",
     tech: ["React.js", "CSS", "JavaScript"],
     github: "#",
-    demo: "https://portfolio-zeta-blond-60.vercel.app/",
+    demo: "#",
   },
 ];
 
@@ -980,12 +1011,12 @@ export default function Portfolio() {
           <span className="callme-icon">📞</span>
           <div className="callme-title">Let's Talk</div>
           <div className="callme-subtitle">REACH OUT DIRECTLY</div>
-          <a href="tel:+917008286360" className="callme-row">
+          <a href="tel:+91 700826360" className="callme-row">
             <div className="callme-row-left">
               <span className="callme-row-icon">📱</span>
               <div>
                 <div className="callme-row-label">Phone</div>
-                <div className="callme-row-val">+91 9XXXXXXXXX</div>
+                <div className="callme-row-val">+91 9XX-XXX-XXXX</div>
               </div>
             </div>
             <span className="callme-arrow">→</span>
